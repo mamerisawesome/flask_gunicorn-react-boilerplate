@@ -12,9 +12,15 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "start": "nodemon --watch webpack --watch package.json --exec \"webpack-dev-server --config webpack/webpack.dev.js\"",
-    "exp": "nodemon --watch webpack --watch package.json --exec \"webpack --config webpack/webpack.prod.js\"",
-    "build": "webpack --config webpack/webpack.prod.js",
-    "ninja": "npm run start & gunicorn -w 4 wsgi:app &"
-  }
+    "flask": "gunicorn -w 4 wsgi:app",
+    "react": "cd app && npm start",
+    "ninja": "npm run flask & npm run react & cd ..",
+    "start": "npm run flask"
+  },
+  "name": "flask-gunicorn-boilerplate",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
